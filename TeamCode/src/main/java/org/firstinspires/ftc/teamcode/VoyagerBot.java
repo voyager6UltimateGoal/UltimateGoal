@@ -36,9 +36,11 @@ public class VoyagerBot {
     public ColorSensor color_front = null;
     public ColorSensor color_back = null;
      */
+    /*
     public RevBlinkinLedDriver underglow = null;
     public Rev2mDistanceSensor distance = null;
     BNO055IMU imu = null;
+     */
     private ElapsedTime runtime = new ElapsedTime();
     static final double COUNTS_PER_MOTOR_REV = 537.6;
     static final double DRIVE_GEAR_REDUCTION = 19.2;
