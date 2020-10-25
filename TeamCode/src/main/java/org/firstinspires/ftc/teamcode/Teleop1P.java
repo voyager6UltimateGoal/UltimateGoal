@@ -34,11 +34,13 @@ public class Teleop1P extends LinearOpMode {
     private boolean bumper_right;
     private boolean button_dl;
     private boolean button_dr;
-    private boolean targetVisible = false;
-    private OpenGLMatrix lastLocation = null;
+    // private boolean targetVisible = false;
+    // private OpenGLMatrix lastLocation = null;
 
     private static final double INCREMENT = 0.03;
     private static final int CYCLE_MS = 50;
+
+    /* limits for servos and motors
     private static final double MAX_POS = 1.0;
     private static final double MIN_POS = 0.0;
     private double position = (MAX_POS - MIN_POS) / 2;
@@ -63,6 +65,7 @@ public class Teleop1P extends LinearOpMode {
     private double frontIsSkystone;
     private double backIsSkystone;
     int front_red, front_green, front_blue, back_red, back_green, back_blue;
+ */
 
     VoyagerBot robot = new VoyagerBot();
     //Detecting detector = null;
@@ -229,11 +232,13 @@ public class Teleop1P extends LinearOpMode {
             robot.leftBack.setPower(leftBackPower);
             robot.rightFront.setPower(rightFrontPower);
             robot.rightBack.setPower(rightBackPower);
+            /*
             robot.back.setPosition(bposition);
             robot.back2.setPosition(bbposition);
             robot.claw.setPosition(position);
             robot.skystone.setPosition(cposition);
             robot.gripper.setPosition(dposition);
+            */
             sleep(CYCLE_MS);
         }
     }
