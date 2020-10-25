@@ -66,10 +66,10 @@ public class VoyagerBot {
     }
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
-        leftFront = hwMap.get(DcMotor.class, "left_front");
-        leftBack = hwMap.get(DcMotor.class, "left_back");
-        rightFront = hwMap.get(DcMotor.class, "right_front");
-        rightBack = hwMap.get(DcMotor.class, "right_back");
+        leftFront = hwMap.get(DcMotor.class, "front_left");
+        leftBack = hwMap.get(DcMotor.class, "back_left");
+        rightFront = hwMap.get(DcMotor.class, "front_right");
+        rightBack = hwMap.get(DcMotor.class, "back_right");
         /*
         yeeter = hwMap.get(DcMotor.class, "yeeter");
         claw = hwMap.get(Servo.class, "claw");
