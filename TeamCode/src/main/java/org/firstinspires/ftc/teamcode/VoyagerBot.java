@@ -96,10 +96,12 @@ public class VoyagerBot {
         color_front.enableLed(false);
         color_back.enableLed(false);
          */
+
+        /*
         distance = hwMap.get(Rev2mDistanceSensor.class, "distance");
         underglow = hwMap.get(RevBlinkinLedDriver.class, "underglow");
         underglow.setPattern(RevBlinkinLedDriver.BlinkinPattern.LIGHT_CHASE_RED);
-
+*/
 
         leftFront.setPower(0);
         leftBack.setPower(0);
@@ -123,6 +125,8 @@ public class VoyagerBot {
         gripper.setPosition(0.1);
         skystone.setPosition(0.4);
          */
+
+        /*
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
@@ -132,5 +136,7 @@ public class VoyagerBot {
         parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
         imu = hwMap.get(BNO055IMU.class, "imu");
         imu.initialize(parameters);
+
+         */
     }
 }

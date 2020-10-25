@@ -105,7 +105,7 @@ public class Teleop1P extends LinearOpMode {
                 drive = 0.5 * drive;
                 strafe = 0.5 * strafe;
             }
-            
+
             // testing wobble arm and wobble claw
             if (button_a) {
                 wAPosition += wAIncrement;
