@@ -18,6 +18,9 @@ public class VoyagerBot {
     public DcMotor leftBack = null;
     public DcMotor rightFront = null;
     public DcMotor rightBack = null;
+
+    public Servo wobbleArm = null;
+    public Servo wobbleClaw = null;
     /*
     public Servo claw = null;
     public Servo back = null;
@@ -70,6 +73,8 @@ public class VoyagerBot {
         leftBack = hwMap.get(DcMotor.class, "back_left");
         rightFront = hwMap.get(DcMotor.class, "front_right");
         rightBack = hwMap.get(DcMotor.class, "back_right");
+        wobbleArm = hwMap.get(Servo.class, "wobble_arm");
+        wobbleClaw = hwMap.get(Servo.class, "wobble_claw");
         /*
         yeeter = hwMap.get(DcMotor.class, "yeeter");
         claw = hwMap.get(Servo.class, "claw");
@@ -107,6 +112,8 @@ public class VoyagerBot {
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        wobbleArm.setPosition(0);
+        wobbleClaw.setPosition(0);
         /*
         claw.setPosition(0);
         back.setPosition(0.35);

@@ -28,6 +28,8 @@ public class Teleop1P extends LinearOpMode {
     private double rotate;
     private boolean button_a;
     private boolean button_b;
+    private boolean button_x;
+    private boolean button_y;
     private boolean button_du;
     private boolean button_dd;
     private boolean bumper_left;
@@ -39,6 +41,11 @@ public class Teleop1P extends LinearOpMode {
 
     private static final double INCREMENT = 0.03;
     private static final int CYCLE_MS = 50;
+
+    private static final double wAIncrement = 0.05;
+    private double wAPosition = 0;
+    private static final double wCIncrement = 0.05;
+    private double wCPosition = 0;
 
     /* limits for servos and motors
     private static final double MAX_POS = 1.0;
@@ -85,6 +92,8 @@ public class Teleop1P extends LinearOpMode {
             rotate = 0.85 * gamepad1.left_stick_x; // rotate in place
             button_a = gamepad1.a;
             button_b = gamepad1.b;
+            button_x = gamepad1.x;
+            button_y = gamepad1.y;
             button_du = gamepad1.dpad_up;
             button_dd = gamepad1.dpad_down;
             button_dl = gamepad1.dpad_left;
@@ -96,6 +105,19 @@ public class Teleop1P extends LinearOpMode {
                 drive = 0.5 * drive;
                 strafe = 0.5 * strafe;
             }
+            
+            // testing wobble arm and wobble claw
+            if (button_a) {
+                wAPosition += wAIncrement;
+            } else if (button_b) {
+                wAPosition -= wAIncrement;
+            }
+            if (button_x) {
+                wCPosition += wCIncrement;
+            } else if (button_y) {
+                wCPosition -= wCIncrement;
+            }
+
             /*
             if(bumper_left) {
                 robot.lift.setPower(1.0);
@@ -232,6 +254,10 @@ public class Teleop1P extends LinearOpMode {
             robot.leftBack.setPower(leftBackPower);
             robot.rightFront.setPower(rightFrontPower);
             robot.rightBack.setPower(rightBackPower);
+
+            robot.wobbleArm.setPosition(wAPosition);
+            robot.wobbleClaw.setPosition(wCPosition);
+
             /*
             robot.back.setPosition(bposition);
             robot.back2.setPosition(bbposition);
