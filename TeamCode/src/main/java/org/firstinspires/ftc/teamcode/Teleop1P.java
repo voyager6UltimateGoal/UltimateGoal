@@ -110,7 +110,7 @@ public class Teleop1P extends LinearOpMode {
                 strafe = 0.5 * strafe;
             }
 
-            // testing wobble arm and wobble claw
+            // wobble arm movement and limits
             if (button_a) {
                 wAPosition += wAIncrement;
                 if (wAPosition > wAMaxPos) {
@@ -122,7 +122,7 @@ public class Teleop1P extends LinearOpMode {
                     wAPosition = wAMaxPos;
                 }
             }
-
+            // wobble claw movement and limits
             if (button_x) {
                 wCPosition += wCIncrement;
                 if (wCPosition > wCMaxPos) {
