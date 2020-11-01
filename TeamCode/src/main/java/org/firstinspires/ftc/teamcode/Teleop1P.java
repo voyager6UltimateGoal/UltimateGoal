@@ -43,13 +43,11 @@ public class Teleop1P extends LinearOpMode {
     private static final int CYCLE_MS = 50;
 
     private static final double wAIncrement = 0.05;
-    private static final double wAMaxPos = 0.5;
-    private static final double wAMinPos = 0;
     private double wAPosition = 0;
     private static final double wCIncrement = 0.05;
-    private static final double wCMaxPos = 0.5;
-    private static final double wCMinPos = 0;
     private double wCPosition = 0;
+
+    private boolean shooterActive = false;
 
     /* limits for servos and motors
     private static final double MAX_POS = 1.0;
@@ -110,41 +108,40 @@ public class Teleop1P extends LinearOpMode {
                 strafe = 0.5 * strafe;
             }
 
-            // wobble arm movement and limits
+            // testing wobble arm and wobble claw
             if (button_a) {
                 wAPosition += wAIncrement;
-                if (wAPosition > wAMaxPos) {
-                    wAPosition = wAMaxPos;
-                }
-            } if (button_b) {
+            } else if (button_b) {
                 wAPosition -= wAIncrement;
-                if (wAPosition < wAMinPos) {
-                    wAPosition = wAMaxPos;
-                }
             }
-            // wobble claw movement and limits
             if (button_x) {
                 wCPosition += wCIncrement;
-                if (wCPosition > wCMaxPos) {
-                    wCPosition = wCMaxPos;
-                }
-            } if (button_y) {
+            } else if (button_y) {
                 wCPosition -= wCIncrement;
-                if (wCPosition < wCMinPos) {
-                    wCPosition = wCMaxPos;
-                }
             }
 
-            /*
+
             if(bumper_left) {
-                robot.lift.setPower(1.0);
+                robot.intake.setPower(1.0);
             }
             if(bumper_right) {
-                robot.lift.setPower(-1);
+                robot.intake.setPower(-1);
             }
+
             if(!bumper_left && !bumper_right) {
-                robot.lift.setPower(0);
+                robot.intake.setPower(0);
             }
+
+            if(!shooterActive && button_dd) {
+                robot.shooter.setPower(1);
+                shooterActive = true;
+            }
+            if(shooterActive && button_dd) {
+                robot.shooter.setPower(0);
+                shooterActive = false;
+            }
+            /*
+
             if(button_a) {
                 position += INCREMENT;
                 if(position >= MAX_POS) {

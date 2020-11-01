@@ -8,6 +8,7 @@ import com.qualcomm.hardware.rev.RevColorSensorV3;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -21,6 +22,9 @@ public class VoyagerBot {
 
     public Servo wobbleArm = null;
     public Servo wobbleClaw = null;
+
+    public DcMotor intake = null;
+    public DcMotor shooter = null;
     /*
     public Servo claw = null;
     public Servo back = null;
@@ -75,6 +79,8 @@ public class VoyagerBot {
         leftBack = hwMap.get(DcMotor.class, "back_left");
         rightFront = hwMap.get(DcMotor.class, "front_right");
         rightBack = hwMap.get(DcMotor.class, "back_right");
+        intake = hwMap.get(DcMotor.class, "intake");
+        shooter = hwMap.get(DcMotor.class, "shooter");
         wobbleArm = hwMap.get(Servo.class, "wobble_arm");
         wobbleClaw = hwMap.get(Servo.class, "wobble_claw");
         /*
@@ -92,6 +98,8 @@ public class VoyagerBot {
         leftBack.setDirection(DcMotor.Direction.FORWARD);
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         rightBack.setDirection(DcMotor.Direction.REVERSE);
+        intake.setDirection(DcMotor.Direction.FORWARD);
+        shooter.setDirection(DcMotor.Direction.FORWARD);
         /*
         color_front = hwMap.get(ColorSensor.class, "color_front");
         color_back = hwMap.get(ColorSensor.class, "color_back");
@@ -109,12 +117,14 @@ public class VoyagerBot {
         leftBack.setPower(0);
         rightFront.setPower(0);
         rightBack.setPower(0);
-        //yeeter.setPower(0);
+        intake.setPower(0);
 
         leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         wobbleArm.setPosition(0);
         wobbleClaw.setPosition(0);
