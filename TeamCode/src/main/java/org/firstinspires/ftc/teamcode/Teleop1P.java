@@ -43,8 +43,12 @@ public class Teleop1P extends LinearOpMode {
     private static final int CYCLE_MS = 50;
 
     private static final double wAIncrement = 0.05;
+    private static final double wAMaxPos = 0.5;
+    private static final double wAMinPos = 0;
     private double wAPosition = 0;
     private static final double wCIncrement = 0.05;
+    private static final double wCMaxPos = 0.5;
+    private static final double wCMinPos = 0;
     private double wCPosition = 0;
 
     private boolean shooterActive = false;
@@ -111,13 +115,25 @@ public class Teleop1P extends LinearOpMode {
             // testing wobble arm and wobble claw
             if (button_a) {
                 wAPosition += wAIncrement;
-            } else if (button_b) {
+                if (wAPosition > wAMaxPos) {
+                    wAPosition = wAMaxPos;
+                }
+            } if (button_b) {
                 wAPosition -= wAIncrement;
+                if (wAPosition < wAMinPos) {
+                    wAPosition = wAMaxPos;
+                }
             }
             if (button_x) {
                 wCPosition += wCIncrement;
-            } else if (button_y) {
+                if (wCPosition > wCMaxPos) {
+                    wCPosition = wCMaxPos;
+                }
+            } if (button_y) {
                 wCPosition -= wCIncrement;
+                if (wCPosition < wCMinPos) {
+                    wCPosition = wCMaxPos;
+                }
             }
 
 
