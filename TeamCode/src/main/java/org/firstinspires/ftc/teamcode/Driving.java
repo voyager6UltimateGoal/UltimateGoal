@@ -16,6 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 public class Driving {
+    /*
     private VoyagerBot robot = new VoyagerBot();
     private LinearOpMode opmode;
     static final double COUNTS_PER_MOTOR_REV = 134.4;
@@ -263,7 +264,7 @@ public class Driving {
                 angles   = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
                 heading = angles.firstAngle;
-                /*if(Math.abs(heading) < Math.abs(degrees)) {*/
+                //if(Math.abs(heading) < Math.abs(degrees)) {
                 if((heading < (degrees + 2)) && (heading > (degrees - 2))) {
                     robot.leftFront.setPower(0);
                     robot.rightFront.setPower(0);
@@ -360,4 +361,5 @@ public class Driving {
             opmode.sleep(200);
         }
     }
+    */
 }
