@@ -53,6 +53,8 @@ public class Teleop1P extends LinearOpMode {
     private static final double wCMinPos = 0;
     private double wCPosition = 0;
     private static final double magIncrement = 0.05;
+    private static final double magMaxPos = 0.56;
+    private static final double magMinPos = 0;
     private double magPosition = 0;
     private boolean shooterActive = false;
 
@@ -126,7 +128,7 @@ public class Teleop1P extends LinearOpMode {
             } if (button_b) {
                 wAPosition -= wAIncrement;
                 if (wAPosition < wAMinPos) {
-                    wAPosition = wAMaxPos;
+                    wAPosition = wAMinPos;
                 }
             }
             if (button_x) {
@@ -137,7 +139,7 @@ public class Teleop1P extends LinearOpMode {
             } if (button_y) {
                 wCPosition -= wCIncrement;
                 if (wCPosition < wCMinPos) {
-                    wCPosition = wCMaxPos;
+                    wCPosition = wCMinPos;
                 }
             }
 
@@ -164,8 +166,14 @@ public class Teleop1P extends LinearOpMode {
 
             if (button_a2) {
                 magPosition += magIncrement;
+                if (magPosition > magMaxPos) {
+                    magPosition = magMaxPos;
+                }
             } if (button_b2) {
                 magPosition -= magIncrement;
+                if (magPosition < magMinPos) {
+                    wAPosition = magMinPos;
+                }
             }
 
             /*
@@ -298,6 +306,7 @@ public class Teleop1P extends LinearOpMode {
 
             robot.wobbleArm.setPosition(wAPosition);
             robot.wobbleClaw.setPosition(wCPosition);
+            robot.mag.setPosition(magPosition);
 
             /*
             robot.back.setPosition(bposition);
