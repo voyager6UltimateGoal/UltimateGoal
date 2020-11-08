@@ -155,13 +155,13 @@ public class Teleop1P extends LinearOpMode {
                 robot.intake.setPower(0);
             }
 
-            if(!shooterActive && button_dd) {
+            if(/*!shooterActive &&*/ button_dd) {
                 robot.shooter.setPower(1);
-                shooterActive = true;
+                //shooterActive = true;
             }
-            if(shooterActive && button_dd) {
+            if(/*shooterActive &&*/ button_dd) {
                 robot.shooter.setPower(0);
-                shooterActive = false;
+                //shooterActive = false;
             }
 
             if (button_a2) {

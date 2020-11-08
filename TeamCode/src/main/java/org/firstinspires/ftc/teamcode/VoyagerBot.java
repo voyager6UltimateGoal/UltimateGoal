@@ -102,7 +102,7 @@ public class VoyagerBot {
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         rightBack.setDirection(DcMotor.Direction.REVERSE);
         intake.setDirection(DcMotor.Direction.FORWARD);
-        shooter.setDirection(DcMotor.Direction.FORWARD);
+        shooter.setDirection(DcMotor.Direction.REVERSE);
         /*
         color_front = hwMap.get(ColorSensor.class, "color_front");
         color_back = hwMap.get(ColorSensor.class, "color_back");
