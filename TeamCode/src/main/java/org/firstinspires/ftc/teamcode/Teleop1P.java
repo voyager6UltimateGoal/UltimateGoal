@@ -36,6 +36,8 @@ public class Teleop1P extends LinearOpMode {
     private boolean bumper_right;
     private boolean button_dl;
     private boolean button_dr;
+    private boolean button_a2;
+    private boolean button_b2;
     // private boolean targetVisible = false;
     // private OpenGLMatrix lastLocation = null;
 
@@ -50,7 +52,8 @@ public class Teleop1P extends LinearOpMode {
     private static final double wCMaxPos = 0.5;
     private static final double wCMinPos = 0;
     private double wCPosition = 0;
-
+    private static final double magIncrement = 0.05;
+    private double magPosition = 0;
     private boolean shooterActive = false;
 
     /* limits for servos and motors
@@ -106,6 +109,8 @@ public class Teleop1P extends LinearOpMode {
             button_dr = gamepad1.dpad_right;
             bumper_left = gamepad1.left_bumper;
             bumper_right = gamepad1.right_bumper;
+            button_a2 = gamepad2.a;
+            button_b2 = gamepad2.b;
             if(gamepad1.right_stick_button) {
                 rotate = 0.5 * rotate;
                 drive = 0.5 * drive;
@@ -156,8 +161,14 @@ public class Teleop1P extends LinearOpMode {
                 robot.shooter.setPower(0);
                 shooterActive = false;
             }
-            /*
 
+            if (button_a2) {
+                magPosition += magIncrement;
+            } if (button_b2) {
+                magPosition -= magIncrement;
+            }
+
+            /*
             if(button_a) {
                 position += INCREMENT;
                 if(position >= MAX_POS) {
