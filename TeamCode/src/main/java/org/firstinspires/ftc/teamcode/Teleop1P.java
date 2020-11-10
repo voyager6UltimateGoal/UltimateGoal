@@ -52,7 +52,7 @@ public class Teleop1P extends LinearOpMode {
     private static final double wCMaxPos = 0.5;
     private static final double wCMinPos = 0;
     private double wCPosition = 0;
-    private static final double magIncrement = 0.05;
+    private static final double magIncrement = 0.02;
     private static final double magMaxPos = 0.56;
     private static final double magMinPos = 0;
     private double magPosition = 0;
