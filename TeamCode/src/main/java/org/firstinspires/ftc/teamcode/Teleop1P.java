@@ -56,8 +56,9 @@ public class Teleop1P extends LinearOpMode {
     private static final double magMaxPos = 0.56;
     private static final double magMinPos = 0;
     private double magPosition = 0;
-    private boolean shooterActive = false;
     private ElapsedTime shooterTimer = new ElapsedTime();
+    private boolean shooterActive = false;
+    private double shooterDelay = 0.35;
 
     /* limits for servos and motors
     private static final double MAX_POS = 1.0;
@@ -155,12 +156,12 @@ public class Teleop1P extends LinearOpMode {
                 robot.intake.setPower(0);
             }
 
-            if(!shooterActive && button_dd && shooterTimer.seconds() > 0.35) {
+            if(!shooterActive && button_dd && shooterTimer.seconds() > shooterDelay) {
                 robot.shooter.setPower(1);
                 shooterActive = true;
                 shooterTimer.reset();
             }
-            if(shooterActive && button_dd && shooterTimer.seconds() > 0.35) {
+            if(shooterActive && button_dd && shooterTimer.seconds() > shooterDelay) {
                 robot.shooter.setPower(0);
                 shooterActive = false;
                 shooterTimer.reset();

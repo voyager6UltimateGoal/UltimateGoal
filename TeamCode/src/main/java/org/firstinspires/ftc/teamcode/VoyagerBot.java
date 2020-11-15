@@ -27,13 +27,7 @@ public class VoyagerBot {
     public DcMotor shooter = null;
 
     public Servo mag = null;
-    /*
-    public Servo claw = null;
-    public Servo back = null;
-    public Servo skystone = null;
-    public DcMotor lift = null;
-    public DcMotor yeeter = null;
-     */
+
     HardwareMap hwMap = null;
     /*
     public CRServo extension = null;
@@ -45,8 +39,10 @@ public class VoyagerBot {
     /*
     public RevBlinkinLedDriver underglow = null;
     public Rev2mDistanceSensor distance = null;
-    BNO055IMU imu = null;
+
      */
+    BNO055IMU imu = null;
+
     private ElapsedTime runtime = new ElapsedTime();
     static final double COUNTS_PER_MOTOR_REV = 537.6;
     static final double DRIVE_GEAR_REDUCTION = 19.2;

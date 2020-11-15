@@ -16,7 +16,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 public class Driving {
-    /*
     private VoyagerBot robot = new VoyagerBot();
     private LinearOpMode opmode;
     static final double COUNTS_PER_MOTOR_REV = 134.4;
@@ -44,6 +43,7 @@ public class Driving {
         opmode.telemetry.update();
         //detector.init(opmode.hardwareMap);
     }
+
     public void drive(double speed, double inches) {
         inches = inches * 24 / 59;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
@@ -71,6 +71,7 @@ public class Driving {
             robot.rightBack.setPower(0);
         }
     }
+    /*
     public float getError(float target) {
         Orientation angles;
         float heading, robotError;
@@ -182,6 +183,7 @@ public class Driving {
             robot.rightBack.setPower(0);
         }
     }
+    */
     public void strafe(double speed, double inches) {
         inches = inches * 24 / 55;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
@@ -209,6 +211,7 @@ public class Driving {
             robot.rightBack.setPower(0);
         }
     }
+    /*
     public void strafeTillLimit(double speed, double _inches) {
         double inches = Math.abs(_inches);
         if(opmode.opModeIsActive()) {
@@ -316,6 +319,9 @@ public class Driving {
             robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
     }
+
+
+     */
     public void turn(double speed, double degrees) {
         double inches = degrees * 35.6 / 360;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
@@ -343,6 +349,8 @@ public class Driving {
             robot.rightBack.setPower(0);
         }
     }
+
+    /*
     public void parseMoves(Path[] paths) {
         for(Path path: paths) {
             if(path.move == M.DRIVE) {
