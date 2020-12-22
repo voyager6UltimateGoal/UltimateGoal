@@ -53,15 +53,15 @@ public class Teleop1P extends LinearOpMode {
     private static final double wCMinPos = 0;
     private double wCPosition = 0;
     private static final double magIncrement = 0.02;
-    private static final double magMaxPos = 0.56;
-    private static final double magMinPos = 0;
-    private double magPosition = 0;
-    private double magMacroPos1 = 0.5;
-    private double magMacroPos2 = 0;
+    private static final double magMaxPos = 0.4;
+    private static final double magMinPos = 0.2;
+    private double magPosition = 0.4;
+    private double magMacroPos1 = 0.2;
+    private double magMacroPos2 = 0.4;
     private ElapsedTime magTimer = new ElapsedTime();
     private boolean magInitial = true;
     private boolean magActive = false;
-    private double magDelay = 1.0;
+    private double magDelay = 0.75;
     private ElapsedTime shooterTimer = new ElapsedTime();
     private boolean shooterActive = false;
     private double shooterDelay = 0.35;
@@ -163,7 +163,7 @@ public class Teleop1P extends LinearOpMode {
             }
 
             if(!shooterActive && button_dd && shooterTimer.seconds() > shooterDelay) {
-                robot.shooter.setPower(1);
+                robot.shooter.setPower(0.65);
                 shooterActive = true;
                 shooterTimer.reset();
             }
