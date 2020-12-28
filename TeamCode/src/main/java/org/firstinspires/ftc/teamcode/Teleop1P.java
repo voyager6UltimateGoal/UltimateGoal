@@ -163,7 +163,7 @@ public class Teleop1P extends LinearOpMode {
             }
 
             if(!shooterActive && button_dd && shooterTimer.seconds() > shooterDelay) {
-                robot.shooter.setPower(0.65);
+                robot.shooter.setPower(0.6);
                 shooterActive = true;
                 shooterTimer.reset();
             }
