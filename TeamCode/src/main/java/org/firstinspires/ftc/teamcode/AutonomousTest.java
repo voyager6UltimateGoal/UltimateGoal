@@ -16,7 +16,7 @@ public class AutonomousTest extends LinearOpMode {
         telemetry.update();
         waitForStart();
         Path[] paths = {
-                new Path(M.DRIVE, D.FORWARD, 0.5, 20),
+                new Path(M.DRIVE, D.FORWARD, 0.1, 24),
         };
         driver.parseMoves(paths);
     }

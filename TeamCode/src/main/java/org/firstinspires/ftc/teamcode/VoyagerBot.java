@@ -127,7 +127,7 @@ public class VoyagerBot {
 
         wobbleArm.setPosition(0);
         wobbleClaw.setPosition(0);
-        mag.setPosition(0);
+        mag.setPosition(0.4);
 
         /*
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
