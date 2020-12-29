@@ -45,7 +45,7 @@ public class Driving {
     }
 
     public void drive(double speed, double inches) {
-        inches = inches * 24 / 59;
+        inches = inches * 11.6 / 59;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
         if(opmode.opModeIsActive()) {
             leftFrontTarget = robot.leftFront.getCurrentPosition() + (int)(inches * COUNTS_PER_INCH);
