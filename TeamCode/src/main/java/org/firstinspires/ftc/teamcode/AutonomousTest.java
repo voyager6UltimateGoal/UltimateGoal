@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-@Autonomous(name="Left: Buildplate Wall")
+@Autonomous(name="Drive Forward")
 public class AutonomousTest extends LinearOpMode {
     Driving driver = new Driving(this);
     @Override
