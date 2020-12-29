@@ -350,24 +350,23 @@ public class Driving {
         }
     }
 
-    /*
+
     public void parseMoves(Path[] paths) {
-        for(Path path: paths) {
-            if(path.move == M.DRIVE) {
-                gyrodrive(path.speed, path.arg);
-            } else if(path.move == M.STRAFE) {
-                gyrostrafe(path.speed, path.arg);
-            } else if(path.move == M.ROTATE) {
-                gyroturn(path.speed, path.arg);
-            } else if(path.move == M.STRAFE_TILL) {
+        for (Path path : paths) {
+            if (path.move == M.DRIVE) {
+                drive(path.speed, path.arg);
+            } else if (path.move == M.STRAFE) {
+                strafe(path.speed, path.arg);
+            } else if (path.move == M.ROTATE) {
+                turn(path.speed, path.arg);
+            } /*else if (path.move == M.STRAFE_TILL) {
                 strafeTillLimit(path.speed, path.arg);
-            } else if(path.move == M.DRIVETURN) {
+            } else if (path.move == M.DRIVETURN) {
                 driveturn(path.speed, path.arg);
-            } else if(path.move == M.CORRECT) {
+            } else if (path.move == M.CORRECT) {
                 correct();
-            }
+            } */
             opmode.sleep(200);
         }
     }
-    */
 }
