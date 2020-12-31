@@ -82,6 +82,7 @@ public class VoyagerBot {
         wobbleArm = hwMap.get(Servo.class, "wobble_arm");
         wobbleClaw = hwMap.get(Servo.class, "wobble_claw");
         mag = hwMap.get(Servo.class, "magazine");
+
         /*
         yeeter = hwMap.get(DcMotor.class, "yeeter");
         claw = hwMap.get(Servo.class, "claw");
@@ -126,8 +127,9 @@ public class VoyagerBot {
         shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         wobbleArm.setPosition(0);
-        wobbleClaw.setPosition(0);
+        wobbleClaw.setPosition(1);
         mag.setPosition(0.4);
+
 
         /*
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
