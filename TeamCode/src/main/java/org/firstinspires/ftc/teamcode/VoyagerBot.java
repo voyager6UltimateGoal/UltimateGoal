@@ -126,7 +126,7 @@ public class VoyagerBot {
         shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         wobbleArm.setPosition(0);
-        wobbleClaw.setPosition(0);
+        wobbleClaw.setPosition(1);
         mag.setPosition(0);
         
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
