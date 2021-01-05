@@ -71,11 +71,11 @@ public class Driving {
             robot.rightBack.setPower(0);
         }
     }
-    /*
+
     public float getError(float target) {
         Orientation angles;
         float heading, robotError;
-        angles   = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.YZX, AngleUnit.DEGREES);
         heading = angles.firstAngle;
         robotError = target - heading;
         while (robotError > 180)  robotError -= 360;
@@ -183,7 +183,7 @@ public class Driving {
             robot.rightBack.setPower(0);
         }
     }
-    */
+
     public void strafe(double speed, double inches) {
         inches = inches * 24 / 55;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
@@ -249,6 +249,7 @@ public class Driving {
             }
         }
     }
+    */
     public void gyroturn(double speed, double degrees) {
         Orientation angles;
         float heading;
@@ -264,7 +265,7 @@ public class Driving {
             robot.leftBack.setPower(speed);
             robot.rightBack.setPower(-speed);
             while(opmode.opModeIsActive()) {
-                angles   = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+                angles   = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.YZX, AngleUnit.DEGREES);
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
                 heading = angles.firstAngle;
                 //if(Math.abs(heading) < Math.abs(degrees)) {
@@ -320,8 +321,6 @@ public class Driving {
         }
     }
 
-
-     */
     public void turn(double speed, double degrees) {
         double inches = degrees * 35.6 / 360;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
@@ -354,11 +353,11 @@ public class Driving {
     public void parseMoves(Path[] paths) {
         for (Path path : paths) {
             if (path.move == M.DRIVE) {
-                drive(path.speed, path.arg);
+                gyrodrive(path.speed, path.arg);
             } else if (path.move == M.STRAFE) {
-                strafe(path.speed, path.arg);
+                gyrostrafe(path.speed, path.arg);
             } else if (path.move == M.ROTATE) {
-                turn(path.speed, path.arg);
+                gyroturn(path.speed, path.arg);
             } /*else if (path.move == M.STRAFE_TILL) {
                 strafeTillLimit(path.speed, path.arg);
             } else if (path.move == M.DRIVETURN) {
