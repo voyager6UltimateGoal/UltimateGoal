@@ -206,13 +206,8 @@ public class Teleop1P extends LinearOpMode {
             telemetry.addData("color 2 red", robot.color2.red());
             telemetry.addData("color 2 blue", robot.color2.blue());
             telemetry.addData("color 2 green", robot.color2.green());
-            */
-
-            Orientation angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XZY, AngleUnit.DEGREES);
-            telemetry.addData("X value", angles.firstAngle);
-            telemetry.addData("Z value", angles.secondAngle);
-            telemetry.addData("Y value", angles.thirdAngle);
             telemetry.update();
+            */
 
             /*
             if(button_a) {
