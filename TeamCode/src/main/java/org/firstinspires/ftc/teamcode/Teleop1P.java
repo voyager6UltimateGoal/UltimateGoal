@@ -9,6 +9,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
 import org.firstinspires.ftc.robotcore.external.matrices.VectorF;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 
@@ -194,6 +197,21 @@ public class Teleop1P extends LinearOpMode {
             }
 
             telemetry.addData("mag position", robot.mag.getPosition());
+
+            /*
+            telemetry.addData("color 1 red", robot.color1.red());
+            telemetry.addData("color 1 blue", robot.color1.blue());
+            telemetry.addData("color 1 green", robot.color1.green());
+
+            telemetry.addData("color 2 red", robot.color2.red());
+            telemetry.addData("color 2 blue", robot.color2.blue());
+            telemetry.addData("color 2 green", robot.color2.green());
+            */
+
+            Orientation angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XZY, AngleUnit.DEGREES);
+            telemetry.addData("X value", angles.firstAngle);
+            telemetry.addData("Z value", angles.secondAngle);
+            telemetry.addData("Y value", angles.thirdAngle);
 
             /*
             if(button_a) {

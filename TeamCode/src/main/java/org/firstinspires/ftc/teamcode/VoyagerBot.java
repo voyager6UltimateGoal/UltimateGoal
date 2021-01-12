@@ -26,6 +26,9 @@ public class VoyagerBot {
     public DcMotor intake = null;
     public DcMotor shooter = null;
 
+    //public ColorSensor color1 = null;
+    //public ColorSensor color2 = null;
+
     public Servo mag = null;
 
     HardwareMap hwMap = null;
@@ -82,6 +85,14 @@ public class VoyagerBot {
         wobbleArm = hwMap.get(Servo.class, "wobble_arm");
         wobbleClaw = hwMap.get(Servo.class, "wobble_claw");
         mag = hwMap.get(Servo.class, "magazine");
+
+        /*
+        color1 = hwMap.get(ColorSensor.class, "color1");
+        color2 = hwMap.get(ColorSensor.class, "color2");
+        color1.enableLed(false);
+        color2.enableLed(false);
+        */
+
         /*
         yeeter = hwMap.get(DcMotor.class, "yeeter");
         claw = hwMap.get(Servo.class, "claw");
