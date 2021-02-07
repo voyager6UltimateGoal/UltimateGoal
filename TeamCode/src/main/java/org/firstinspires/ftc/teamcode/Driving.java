@@ -265,11 +265,12 @@ public class Driving {
             robot.leftBack.setPower(speed);
             robot.rightBack.setPower(-speed);
             while(opmode.opModeIsActive()) {
-                angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.YZX, AngleUnit.DEGREES);
+                angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
                 heading = angles.firstAngle;
                 //if(Math.abs(heading) < Math.abs(degrees)) {
                 if((heading < (degrees + 2)) && (heading > (degrees - 2))) {
+                    opmode.telemetry.addLine("if statements runs");
                     robot.leftFront.setPower(0);
                     robot.rightFront.setPower(0);
                     robot.leftBack.setPower(0);
