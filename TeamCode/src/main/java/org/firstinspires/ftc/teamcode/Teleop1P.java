@@ -200,7 +200,6 @@ public class Teleop1P extends LinearOpMode {
 
             Orientation angles;
             float heading;
-            robot.imu.startAccelerationIntegration(new Position(), new Velocity(), 15);
             angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
             heading = angles.firstAngle;
             telemetry.addData("heading", heading);

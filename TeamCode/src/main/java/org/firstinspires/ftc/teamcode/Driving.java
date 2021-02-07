@@ -253,7 +253,7 @@ public class Driving {
     public void gyroturn(double speed, double degrees) {
         Orientation angles;
         float heading;
-        robot.imu.startAccelerationIntegration(new Position(), new Velocity(), 15);
+        robot.imu.startAccelerationIntegration(new Position(), new Velocity(), 100);
         if(opmode.opModeIsActive()) {
             robot.leftFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
