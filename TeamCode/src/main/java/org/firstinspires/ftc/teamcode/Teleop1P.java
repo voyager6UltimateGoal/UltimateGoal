@@ -13,6 +13,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.Position;
+import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 
 import static org.firstinspires.ftc.robotcore.external.navigation.AngleUnit.DEGREES;
@@ -195,6 +197,18 @@ public class Teleop1P extends LinearOpMode {
                 magPosition = magMacroPos2;
                 magActive = false;
             }
+
+            Orientation angles;
+            float heading;
+            robot.imu.startAccelerationIntegration(new Position(), new Velocity(), 15);
+            angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
+            heading = angles.firstAngle;
+            telemetry.addData("heading", heading);
+            telemetry.update();
+            if((heading < (90 + 7)) && (heading > (90 - 7))) {
+                telemetry.addLine("if statements runs");
+            }
+
 
             //telemetry.addData("mag position", robot.mag.getPosition());
 
