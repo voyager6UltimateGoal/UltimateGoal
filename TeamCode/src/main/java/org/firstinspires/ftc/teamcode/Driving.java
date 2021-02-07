@@ -75,7 +75,7 @@ public class Driving {
     public float getError(float target) {
         Orientation angles;
         float heading, robotError;
-        angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XZY, AngleUnit.DEGREES);
+        angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
         heading = angles.firstAngle;
         robotError = target - heading;
         while (robotError > 180)  robotError -= 360;
@@ -265,7 +265,7 @@ public class Driving {
             robot.leftBack.setPower(speed);
             robot.rightBack.setPower(-speed);
             while(opmode.opModeIsActive()) {
-                angles   = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.XZY, AngleUnit.DEGREES);
+                angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
                 heading = angles.firstAngle;
                 //if(Math.abs(heading) < Math.abs(degrees)) {
