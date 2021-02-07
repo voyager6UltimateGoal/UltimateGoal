@@ -259,13 +259,11 @@ public class Driving {
             robot.rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-            /*
+
             robot.leftFront.setPower(speed);
             robot.rightFront.setPower(-speed);
             robot.leftBack.setPower(speed);
             robot.rightBack.setPower(-speed);
-
-             */
             while(opmode.opModeIsActive()) {
                 angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
