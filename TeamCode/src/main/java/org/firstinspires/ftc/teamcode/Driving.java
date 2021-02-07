@@ -269,6 +269,9 @@ public class Driving {
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
                 heading = angles.firstAngle;
                 //if(Math.abs(heading) < Math.abs(degrees)) {
+                opmode.telemetry.addData("heading", heading);
+                opmode.telemetry.addData("degrees", degrees);
+                opmode.telemetry.update();
                 if((heading < (degrees + 2)) && (heading > (degrees - 2))) {
                     opmode.telemetry.addLine("if statements runs");
                     opmode.telemetry.update();
