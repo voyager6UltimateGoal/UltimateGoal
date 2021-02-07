@@ -273,7 +273,7 @@ public class Driving {
                 //if(Math.abs(heading) < Math.abs(degrees)) {
                 opmode.telemetry.addData("heading", heading);
                 opmode.telemetry.update();
-                if((heading < (degrees + 2)) && (heading > (degrees - 2))) {
+                if((heading < (degrees + 7)) && (heading > (degrees - 7))) {
                     opmode.telemetry.addLine("if statements runs");
                     opmode.telemetry.update();
                     robot.leftFront.setPower(0);
