@@ -265,7 +265,7 @@ public class Driving {
             robot.leftBack.setPower(speed);
             robot.rightBack.setPower(-speed);
             while(opmode.opModeIsActive()) {
-                angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
+                angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.YZX, AngleUnit.DEGREES);
                 //heading = AngleUnit.DEGREES.normalize(angles.firstAngle);
                 heading = angles.firstAngle;
                 //if(Math.abs(heading) < Math.abs(degrees)) {

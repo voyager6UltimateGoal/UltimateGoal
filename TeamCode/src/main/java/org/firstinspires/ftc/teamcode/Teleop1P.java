@@ -49,7 +49,7 @@ public class Teleop1P extends LinearOpMode {
 
     private static final double wAIncrement = 0.05;
     private static final double wAMaxPos = 0.5;
-    private static final double wAMinPos = 0;
+    private static final double wAMinPos = 0.2;
     private double wAPosition = 0;
     private static final double wCIncrement = 0.05;
     private static final double wCMaxPos = 1;

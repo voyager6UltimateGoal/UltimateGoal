@@ -136,7 +136,7 @@ public class VoyagerBot {
         intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         shooter.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        wobbleArm.setPosition(0);
+        wobbleArm.setPosition(0.2);
         wobbleClaw.setPosition(1);
         mag.setPosition(0.4);
         
