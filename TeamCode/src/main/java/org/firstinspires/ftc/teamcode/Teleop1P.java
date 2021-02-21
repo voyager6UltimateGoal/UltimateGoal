@@ -211,13 +211,13 @@ public class Teleop1P extends LinearOpMode {
 
             //telemetry.addData("mag position", robot.mag.getPosition());
 
-            telemetry.addData("color 1 red", robot.color1.red());
-            telemetry.addData("color 1 blue", robot.color1.blue());
-            telemetry.addData("color 1 green", robot.color1.green());
+            telemetry.addData("color 1 red", robot.colorTop.red());
+            telemetry.addData("color 1 blue", robot.colorTop.blue());
+            telemetry.addData("color 1 green", robot.colorTop.green());
 
-            telemetry.addData("color 2 red", robot.color2.red());
-            telemetry.addData("color 2 blue", robot.color2.blue());
-            telemetry.addData("color 2 green", robot.color2.green());
+            telemetry.addData("color 2 red", robot.colorBottom.red());
+            telemetry.addData("color 2 blue", robot.colorBottom.blue());
+            telemetry.addData("color 2 green", robot.colorBottom.green());
             telemetry.update();
 
             /*
