@@ -211,7 +211,6 @@ public class Teleop1P extends LinearOpMode {
 
             //telemetry.addData("mag position", robot.mag.getPosition());
 
-            /*
             telemetry.addData("color 1 red", robot.color1.red());
             telemetry.addData("color 1 blue", robot.color1.blue());
             telemetry.addData("color 1 green", robot.color1.green());
@@ -220,7 +219,6 @@ public class Teleop1P extends LinearOpMode {
             telemetry.addData("color 2 blue", robot.color2.blue());
             telemetry.addData("color 2 green", robot.color2.green());
             telemetry.update();
-            */
 
             /*
             if(button_a) {

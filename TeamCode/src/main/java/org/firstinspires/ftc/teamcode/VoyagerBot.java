@@ -26,8 +26,8 @@ public class VoyagerBot {
     public DcMotor intake = null;
     public DcMotor shooter = null;
 
-    //public ColorSensor color1 = null;
-    //public ColorSensor color2 = null;
+    public ColorSensor color1 = null;
+    public ColorSensor color2 = null;
 
     public Servo mag = null;
 
