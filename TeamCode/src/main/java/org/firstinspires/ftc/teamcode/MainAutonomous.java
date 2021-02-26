@@ -30,9 +30,10 @@ public class MainAutonomous extends LinearOpMode {
         Path[] fourRing = { // what the robot does if there's four rings
 //                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
         };
-        if (driver.identifyRing() == 0) {
+        int rings = driver.identifyRing();
+        if (rings == 0) {
             driver.parseMoves(noRing);
-        } else if (driver.identifyRing() == 1) {
+        } else if (rings == 1) {
             driver.parseMoves(oneRing);
         } else {
             driver.parseMoves(fourRing);
