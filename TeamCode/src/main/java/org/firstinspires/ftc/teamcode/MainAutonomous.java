@@ -15,19 +15,20 @@ public class MainAutonomous extends LinearOpMode {
         telemetry.addData("Status", "Ready");
         telemetry.update();
         waitForStart();
+        driver.colorLightOn();
         Path[] initial = { // drive the robot into position to scan the rings
-                new Path(M.WOBBLE_CLOSE, D.N, 0, 0),
-                new Path(M.WOBBLE_OPEN, D.N, 0, 0)
+                new Path(M.STRAFE, D.BACKWARD, 0.2f, 38),
         };
+        driver.colorLightOff();
         driver.parseMoves(initial);
         Path[] noRing = { // what the robot does if there's no rings
-                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+//                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
         };
         Path[] oneRing = { // what the robot does if there's one ring
-                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+//                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
         };
         Path[] fourRing = { // what the robot does if there's four rings
-                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+//                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
         };
         if (driver.identifyRing() == 0) {
             driver.parseMoves(noRing);

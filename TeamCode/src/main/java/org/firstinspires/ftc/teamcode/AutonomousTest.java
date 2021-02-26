@@ -18,7 +18,7 @@ public class AutonomousTest extends LinearOpMode {
         Path[] paths = {
                 //new Path(M.DRIVE, D.FORWARD, 0.5, 20),
                 //new Path(M.STRAFE, D.BACKWARD, 0.5, 10),
-                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+                new Path(M.STRAFE, D.BACKWARD, 0.2, 24)
         };
         driver.parseMoves(paths);
     }

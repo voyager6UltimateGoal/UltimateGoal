@@ -49,14 +49,14 @@ public class Teleop1P extends LinearOpMode {
     private static final double INCREMENT = 0.03;
     private static final int CYCLE_MS = 50;
 
-    private static final double wAIncrement = 0.05;
-    private static final double wAMaxPos = 0.5;
-    private static final double wAMinPos = 0.2;
-    private double wAPosition = 0;
     private static final double wCIncrement = 0.05;
-    private static final double wCMaxPos = 1;
-    private static final double wCMinPos = 0.3;
-    private double wCPosition = 1;
+    private static final double wCMaxPos = 0.35;
+    private static final double wCMinPos = 0;
+    private double wCPosition = 0.35;
+    private static final double wAIncrement = 0.03;
+    private static final double wAMaxPos = 0.8;
+    private static final double wAMinPos = 0.28;
+    private double wAPosition = 0.6;
 //    private static final double magIncrement = 0.02;
 //    private static final double magMaxPos = 0.4;
 //    private static final double magMinPos = 0.2;
@@ -134,25 +134,25 @@ public class Teleop1P extends LinearOpMode {
 
             // testing wobble arm and wobble claw
             if (button_a) {
-                wAPosition += wAIncrement;
-                if (wAPosition > wAMaxPos) {
-                    wAPosition = wAMaxPos;
-                }
-            } if (button_b) {
-                wAPosition -= wAIncrement;
-                if (wAPosition < wAMinPos) {
-                    wAPosition = wAMinPos;
-                }
-            }
-            if (button_x) {
                 wCPosition += wCIncrement;
                 if (wCPosition > wCMaxPos) {
                     wCPosition = wCMaxPos;
                 }
-            } if (button_y) {
+            } if (button_b) {
                 wCPosition -= wCIncrement;
                 if (wCPosition < wCMinPos) {
                     wCPosition = wCMinPos;
+                }
+            }
+            if (button_x) {
+                wAPosition += wAIncrement;
+                if (wAPosition > wAMaxPos) {
+                    wAPosition = wAMaxPos;
+                }
+            } if (button_y) {
+                wAPosition -= wAIncrement;
+                if (wAPosition < wAMinPos) {
+                    wAPosition = wAMinPos;
                 }
             }
 
@@ -202,7 +202,7 @@ public class Teleop1P extends LinearOpMode {
             float heading;
             angles = robot.imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZXY, AngleUnit.DEGREES);
             heading = angles.firstAngle;
-            telemetry.addData("heading", heading);
+//            telemetry.addData("heading", heading);
             telemetry.update();
             if((heading < (90 + 7)) && (heading > (90 - 7))) {
                 telemetry.addLine("if statements runs");
@@ -211,13 +211,13 @@ public class Teleop1P extends LinearOpMode {
 
             //telemetry.addData("mag position", robot.mag.getPosition());
 
-            telemetry.addData("color 1 red", robot.colorTop.red());
-            telemetry.addData("color 1 blue", robot.colorTop.blue());
-            telemetry.addData("color 1 green", robot.colorTop.green());
-
-            telemetry.addData("color 2 red", robot.colorBottom.red());
-            telemetry.addData("color 2 blue", robot.colorBottom.blue());
-            telemetry.addData("color 2 green", robot.colorBottom.green());
+//            telemetry.addData("color 1 red", robot.colorTop.red());
+//            telemetry.addData("color 1 blue", robot.colorTop.blue());
+//            telemetry.addData("color 1 green", robot.colorTop.green());
+//
+//            telemetry.addData("color 2 red", robot.colorBottom.red());
+//            telemetry.addData("color 2 blue", robot.colorBottom.blue());
+//            telemetry.addData("color 2 green", robot.colorBottom.green());
             telemetry.update();
 
             /*

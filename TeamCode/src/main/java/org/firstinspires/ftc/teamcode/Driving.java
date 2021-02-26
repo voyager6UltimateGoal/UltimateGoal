@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -10,7 +9,6 @@ import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.Position;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
@@ -185,7 +183,7 @@ public class Driving {
     }
 
     public void strafe(double speed, double inches) {
-        inches = inches * 24 / 55;
+        inches = inches * 13.7 / 59;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
         if(opmode.opModeIsActive()) {
             leftFrontTarget = robot.leftFront.getCurrentPosition() + (int)(inches * COUNTS_PER_INCH);
@@ -363,10 +361,16 @@ public class Driving {
             }
         }
         if (bottomRing&&topRing) {
+            opmode.telemetry.addData("Rings", "4");
+            opmode.telemetry.update();
             return 4;
         } else if (bottomRing&&!topRing) {
+            opmode.telemetry.addData("Rings", "1");
+            opmode.telemetry.update();
             return 1;
         } else {
+            opmode.telemetry.addData("Rings", "0");
+            opmode.telemetry.update();
             return 0;
         }
     }
@@ -385,6 +389,16 @@ public class Driving {
 
     public void wClawClose() {
         robot.wobbleClaw.setPosition(0.3);
+    }
+
+    public void colorLightOn(){
+        robot.colorBottom.enableLed(true);
+        robot.colorTop.enableLed(true);
+    }
+
+    public void colorLightOff(){
+        robot.colorBottom.enableLed(false);
+        robot.colorTop.enableLed(false);
     }
 
     private ElapsedTime magTimer = new ElapsedTime();
