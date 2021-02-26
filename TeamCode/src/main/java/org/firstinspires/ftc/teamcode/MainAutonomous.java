@@ -1,0 +1,40 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+@Autonomous(name="Main Autonomous")
+public class MainAutonomous extends LinearOpMode {
+    Driving driver = new Driving(this);
+    @Override
+    public void runOpMode() {
+        driver.initHwMap();
+        telemetry.addData("Status", "Resetting Encoders");
+        telemetry.update();
+        driver.resetEncoders();
+        telemetry.addData("Status", "Ready");
+        telemetry.update();
+        waitForStart();
+        Path[] initial = { // drive the robot into position to scan the rings
+                new Path(M.WOBBLE_CLOSE, D.N, 0, 0),
+                new Path(M.WOBBLE_OPEN, D.N, 0, 0)
+        };
+        driver.parseMoves(initial);
+        Path[] noRing = { // what the robot does if there's no rings
+                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+        };
+        Path[] oneRing = { // what the robot does if there's one ring
+                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+        };
+        Path[] fourRing = { // what the robot does if there's four rings
+                new Path(M.ROTATE, D.FORWARD, 0.3, 90)
+        };
+        if (driver.identifyRing() == 0) {
+            driver.parseMoves(noRing);
+        } else if (driver.identifyRing() == 1) {
+            driver.parseMoves(oneRing);
+        } else {
+            driver.parseMoves(fourRing);
+        }
+    }
+}

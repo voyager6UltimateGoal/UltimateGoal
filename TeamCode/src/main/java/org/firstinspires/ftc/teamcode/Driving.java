@@ -353,16 +353,69 @@ public class Driving {
         }
     }
 
+    public int identifyRing() {
+        boolean bottomRing = false;
+        boolean topRing = false;
+        if (robot.colorBottom.red()>300 && robot.colorBottom.blue()>177 && robot.colorBottom.green()>342) {
+            bottomRing = true;
+            if (robot.colorTop.red()>170 && robot.colorTop.blue()>77 && robot.colorTop.green()>183) {
+                topRing = true;
+            }
+        }
+        if (bottomRing&&topRing) {
+            return 4;
+        } else if (bottomRing&&!topRing) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public void wArmDown() {
+        robot.wobbleArm.setPosition(0.2);
+    }
+
+    public void wArmUp() {
+        robot.wobbleArm.setPosition(0.5);
+    }
+
+    public void wClawOpen() {
+        robot.wobbleClaw.setPosition(1);
+    }
+
+    public void wClawClose() {
+        robot.wobbleClaw.setPosition(0.3);
+    }
+
+    private ElapsedTime magTimer = new ElapsedTime();
+    public void magazinePush() {
+        robot.mag.setPosition(0.2);
+        magTimer.reset();
+        if (magTimer.seconds() > 0.75) {
+            robot.mag.setPosition(0.4);
+        }
+    }
 
     public void parseMoves(Path[] paths) {
         for (Path path : paths) {
             if (path.move == M.DRIVE) {
-                gyrodrive(path.speed, path.arg);
+                drive(path.speed, path.arg);
             } else if (path.move == M.STRAFE) {
-                gyrostrafe(path.speed, path.arg);
+                strafe(path.speed, path.arg);
             } else if (path.move == M.ROTATE) {
-                gyroturn(path.speed, path.arg);
-            } /*else if (path.move == M.STRAFE_TILL) {
+                turn(path.speed, path.arg);
+            } else if (path.move == M.WOBBLE_UP) {
+                wArmUp();
+            } else if (path.move == M.WOBBLE_DOWN) {
+                wArmDown();
+            } else if (path.move == M.WOBBLE_OPEN) {
+                wClawOpen();
+            } else if (path.move == M.WOBBLE_CLOSE) {
+                wClawClose();
+            } else if (path.move == M.MAG_PUSH) {
+                magazinePush();
+            }
+            /*else if (path.move == M.STRAFE_TILL) {
                 strafeTillLimit(path.speed, path.arg);
             } else if (path.move == M.DRIVETURN) {
                 driveturn(path.speed, path.arg);
