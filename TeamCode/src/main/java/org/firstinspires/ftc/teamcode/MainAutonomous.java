@@ -28,13 +28,12 @@ public class MainAutonomous extends LinearOpMode {
                 new Path(M.STRAFE, D.BACKWARD, 0.2, 40),
                 new Path(M.DRIVE, D.BACKWARD, 0.1, 5),
                 new Path(M.WOBBLE_DOWN, D.N, 0, 0),
-                new Path(M.WAIT, D.N, 0, 1300),
                 new Path(M.WOBBLE_OPEN, D.N, 0, 0),
-                new Path(M.WAIT, D.N, 0, 500),
                 new Path(M.WOBBLE_UP, D.N, 0, 0),
                 new Path(M.STRAFE, D.FORWARD, 0.2, 18),
-                new Path(M.ROTATE, D.BACKWARD, 0.1, 90),
-                new Path(M.k)
+                new Path(M.SHOOTER_ON, D.N, 0, 0),
+                new Path(M.ROTATE, D.BACKWARD, 0.2, 80),
+                new Path(M.MAG_PUSH, D.N, 0, 0)
         };
         Path[] oneRing = { // what the robot does if there's one ring
 //                new Path(M.ROTATE, D.FORWARD, 0.3, 90)

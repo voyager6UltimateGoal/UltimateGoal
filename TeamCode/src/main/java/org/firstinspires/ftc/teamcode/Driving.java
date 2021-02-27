@@ -383,6 +383,7 @@ public class Driving {
 
     public void wArmDown() {
         robot.wobbleArm.setPosition(0.2);
+        opmode.sleep(300);
     }
 
     public void wArmUp() {
@@ -391,6 +392,7 @@ public class Driving {
 
     public void wClawOpen() {
         robot.wobbleClaw.setPosition(0);
+        opmode.sleep(100);
     }
 
     public void wClawClose() {
@@ -431,13 +433,16 @@ public class Driving {
     public void magazinePush() {
         robot.mag.setPosition(0.2);
         magTimer.reset();
-        if (magTimer.seconds() > 0.75) {
-            robot.mag.setPosition(0.4);
+        while (opmode.opModeIsActive()) {
+            if (magTimer.seconds() > 0.75) {
+                robot.mag.setPosition(0.4);
+            }
         }
     }
 
     public void robotWait(int ms) {
         opmode.sleep(ms);
+
     }
 
     public void parseMoves(Path[] paths) {
