@@ -355,41 +355,39 @@ public class Driving {
     public int identifyRing() {
         boolean bottomRing = false;
         boolean topRing = false;
-        if (robot.colorBottom.red()>300 && robot.colorBottom.blue()>177 && robot.colorBottom.green()>342) {
+        if (robot.colorBottom.red()>98 && robot.colorBottom.green()>125 && robot.colorBottom.blue()>90) {
             bottomRing = true;
-            if (robot.colorTop.red()>170 && robot.colorTop.blue()>77 && robot.colorTop.green()>183) {
+            if (robot.colorTop.red()>85 && robot.colorTop.green()>100 && robot.colorTop.blue()>60) {
                 topRing = true;
             }
         }
-        opmode.telemetry.addData("color 1 red", robot.colorTop.red());
-        opmode.telemetry.addData("color 1 blue", robot.colorTop.blue());
-        opmode.telemetry.addData("color 1 green", robot.colorTop.green());
+        opmode.telemetry.addData("color Bottom red", robot.colorBottom.red());
+        opmode.telemetry.addData("color Bottom green", robot.colorBottom.green());
+        opmode.telemetry.addData("color Bottom blue", robot.colorBottom.blue());
 
-        opmode.telemetry.addData("color 2 red", robot.colorBottom.red());
-        opmode.telemetry.addData("color 2 blue", robot.colorBottom.blue());
-        opmode.telemetry.addData("color 2 green", robot.colorBottom.green());
+        opmode.telemetry.addData("color Top red", robot.colorTop.red());
+        opmode.telemetry.addData("color Top green", robot.colorTop.green());
+        opmode.telemetry.addData("color Top blue", robot.colorTop.blue());
+
         if (bottomRing&&topRing) {
-            opmode.telemetry.addData("Rings", "4");
-            opmode.telemetry.update();
+//            opmode.telemetry.addData("Rings", "4");
             return 4;
         } else if (bottomRing&&!topRing) {
-            opmode.telemetry.addData("Rings", "1");
-            opmode.telemetry.update();
+//            opmode.telemetry.addData("Rings", "1");
             return 1;
         } else {
-            opmode.telemetry.addData("Rings", "0");
-            opmode.telemetry.update();
+//            opmode.telemetry.addData("Rings", "0");
             return 0;
         }
     }
 
     public void wArmDown() {
         robot.wobbleArm.setPosition(0.2);
-        opmode.sleep(300);
+        opmode.sleep(400);
     }
 
     public void wArmUp() {
-        robot.wobbleArm.setPosition(0.5);
+        robot.wobbleArm.setPosition(0.8);
     }
 
     public void wClawOpen() {
