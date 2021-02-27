@@ -324,7 +324,7 @@ public class Driving {
     }
 
     public void turn(double speed, double degrees) {
-        double inches = degrees * 35.6 / 360;
+        double inches = degrees * 13.7 / 59;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
         if(opmode.opModeIsActive()) {
             leftFrontTarget = robot.leftFront.getCurrentPosition() + (int)(inches * COUNTS_PER_INCH);
@@ -332,22 +332,21 @@ public class Driving {
             rightFrontTarget = robot.rightFront.getCurrentPosition() - (int)(inches * COUNTS_PER_INCH);
             rightBackTarget = robot.rightBack.getCurrentPosition() - (int)(inches * COUNTS_PER_INCH);
             robot.leftFront.setPower(speed);
-            robot.rightFront.setPower(speed);
+            robot.rightFront.setPower(-speed);
             robot.leftBack.setPower(speed);
-            robot.rightBack.setPower(speed);
+            robot.rightBack.setPower(-speed);
             if(inches >= 0) {
                 while(opmode.opModeIsActive() && (robot.leftFront.getCurrentPosition() <= leftFrontTarget | robot.leftBack.getCurrentPosition() <= leftBackTarget | robot.rightFront.getCurrentPosition() >= rightFrontTarget | robot.rightBack.getCurrentPosition() >= rightBackTarget)) {
 
                 }
             } else {
                 while(opmode.opModeIsActive() && (robot.leftFront.getCurrentPosition() >= leftFrontTarget | robot.leftBack.getCurrentPosition() >= leftBackTarget | robot.rightFront.getCurrentPosition() <= rightFrontTarget | robot.rightBack.getCurrentPosition() <= rightBackTarget)) {
-
+                    robot.leftFront.setPower(0);
+                    robot.rightFront.setPower(0);
+                    robot.leftBack.setPower(0);
+                    robot.rightBack.setPower(0);
                 }
             }
-            robot.leftFront.setPower(0);
-            robot.rightFront.setPower(0);
-            robot.leftBack.setPower(0);
-            robot.rightBack.setPower(0);
         }
     }
 
@@ -360,6 +359,13 @@ public class Driving {
                 topRing = true;
             }
         }
+        opmode.telemetry.addData("color 1 red", robot.colorTop.red());
+        opmode.telemetry.addData("color 1 blue", robot.colorTop.blue());
+        opmode.telemetry.addData("color 1 green", robot.colorTop.green());
+
+        opmode.telemetry.addData("color 2 red", robot.colorBottom.red());
+        opmode.telemetry.addData("color 2 blue", robot.colorBottom.blue());
+        opmode.telemetry.addData("color 2 green", robot.colorBottom.green());
         if (bottomRing&&topRing) {
             opmode.telemetry.addData("Rings", "4");
             opmode.telemetry.update();
