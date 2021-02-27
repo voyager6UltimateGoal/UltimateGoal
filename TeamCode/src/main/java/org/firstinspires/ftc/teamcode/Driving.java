@@ -441,7 +441,7 @@ public class Driving {
     }
 
     private ElapsedTime moveTimer = new ElapsedTime();
-    private int moveDelay = 0;
+    private double moveDelay = 0;
     public void parseMoves(Path[] paths) {
         for (Path path : paths) {
             while (opmode.opModeIsActive()) {
@@ -464,7 +464,7 @@ public class Driving {
                         magazinePush();
                     } else if (path.move == M.WAIT) {
                         moveTimer.reset();
-                        moveDelay = (int) path.arg;
+                        moveDelay = path.arg;
                     } else if (path.move == M.SHOOTER_ON) {
                         shooterOn();
                     } else if (path.move == M.SHOOTER_OFF) {
