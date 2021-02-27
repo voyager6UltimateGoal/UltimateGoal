@@ -21,6 +21,7 @@ public class Driving {
     static final double WHEEL_RADIUS_INCHES = 10 / 2.54;
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_RADIUS_INCHES * Math.PI);
     private boolean targetVisible = false;
+    private boolean magRet = true;
     private OpenGLMatrix lastLocation = null;
     //Detecting detector = new Detecting();
     Orientation lastAngles = new Orientation();
@@ -400,8 +401,8 @@ public class Driving {
         robot.wobbleClaw.setPosition(0.35);
     }
 
-    public void shooterOn() {
-        robot.shooter.setPower(0.58);
+    public void shooterOn(double power) {
+        robot.shooter.setPower(power);
     }
 
     public void shooterOff() {
@@ -434,11 +435,14 @@ public class Driving {
     public void magazinePush() {
         robot.mag.setPosition(0.2);
         magTimer.reset();
-        while (opmode.opModeIsActive()) {
+        magRet = false;
+        while (opmode.opModeIsActive() && !magRet) {
             if (magTimer.seconds() > 0.75) {
-                robot.mag.setPosition(0.4);
+                robot.mag.setPosition(0.43);
+                magRet = true;
             }
         }
+        opmode.sleep(250);
     }
 
     public void parseMoves(Path[] paths) {
@@ -462,7 +466,7 @@ public class Driving {
             } else if (path.move == M.WAIT) {
 
             } else if (path.move == M.SHOOTER_ON) {
-                shooterOn();
+                shooterOn(path.speed);
             } else if (path.move == M.SHOOTER_OFF) {
                 shooterOff();
             } else if (path.move == M.INTAKE_FORWARD) {

@@ -60,9 +60,9 @@ public class Teleop1P extends LinearOpMode {
 //    private static final double magIncrement = 0.02;
 //    private static final double magMaxPos = 0.4;
 //    private static final double magMinPos = 0.2;
-    private double magPosition = 0.4;
+    private double magPosition = 0.43;
     private double magMacroPos1 = 0.2;
-    private double magMacroPos2 = 0.4;
+    private double magMacroPos2 = 0.43;
     private ElapsedTime magTimer = new ElapsedTime();
     private boolean magInitial = true;
     private boolean magActive = false;
