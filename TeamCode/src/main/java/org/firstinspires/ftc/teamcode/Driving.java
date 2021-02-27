@@ -341,12 +341,13 @@ public class Driving {
                 }
             } else {
                 while(opmode.opModeIsActive() && (robot.leftFront.getCurrentPosition() >= leftFrontTarget | robot.leftBack.getCurrentPosition() >= leftBackTarget | robot.rightFront.getCurrentPosition() <= rightFrontTarget | robot.rightBack.getCurrentPosition() <= rightBackTarget)) {
-                    robot.leftFront.setPower(0);
-                    robot.rightFront.setPower(0);
-                    robot.leftBack.setPower(0);
-                    robot.rightBack.setPower(0);
+                    
                 }
             }
+            robot.leftFront.setPower(0);
+            robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
         }
     }
 
