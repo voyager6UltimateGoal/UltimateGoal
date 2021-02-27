@@ -440,50 +440,52 @@ public class Driving {
         }
     }
 
-    public void robotWait(int ms) {
-        opmode.sleep(ms);
-
-    }
-
+    private ElapsedTime moveTimer = new ElapsedTime();
+    private int moveDelay = 0;
     public void parseMoves(Path[] paths) {
         for (Path path : paths) {
-            if (path.move == M.DRIVE) {
-                drive(path.speed, path.arg);
-            } else if (path.move == M.STRAFE) {
-                strafe(path.speed, path.arg);
-            } else if (path.move == M.ROTATE) {
-                turn(path.speed, path.arg);
-            } else if (path.move == M.WOBBLE_UP) {
-                wArmUp();
-            } else if (path.move == M.WOBBLE_DOWN) {
-                wArmDown();
-            } else if (path.move == M.WOBBLE_OPEN) {
-                wClawOpen();
-            } else if (path.move == M.WOBBLE_CLOSE) {
-                wClawClose();
-            } else if (path.move == M.MAG_PUSH) {
-                magazinePush();
-            } else if (path.move == M.WAIT) {
-                robotWait((int) path.arg);
-            } else if (path.move == M.SHOOTER_ON) {
-                shooterOn();
-            } else if (path.move == M.SHOOTER_OFF) {
-                shooterOff();
-            } else if (path.move == M.INTAKE_FORWARD) {
-                intakeForward();
-            } else if (path.move == M.INTAKE_BACKWARD) {
-                intakeBackward();
-            } else if (path.move == M.INTAKE_OFF) {
-                intakeOff();
+            while (opmode.opModeIsActive()) {
+                if (moveTimer.seconds() > moveDelay) {
+                    if (path.move == M.DRIVE) {
+                        drive(path.speed, path.arg);
+                    } else if (path.move == M.STRAFE) {
+                        strafe(path.speed, path.arg);
+                    } else if (path.move == M.ROTATE) {
+                        turn(path.speed, path.arg);
+                    } else if (path.move == M.WOBBLE_UP) {
+                        wArmUp();
+                    } else if (path.move == M.WOBBLE_DOWN) {
+                        wArmDown();
+                    } else if (path.move == M.WOBBLE_OPEN) {
+                        wClawOpen();
+                    } else if (path.move == M.WOBBLE_CLOSE) {
+                        wClawClose();
+                    } else if (path.move == M.MAG_PUSH) {
+                        magazinePush();
+                    } else if (path.move == M.WAIT) {
+                        moveTimer.reset();
+                        moveDelay = (int) path.arg;
+                    } else if (path.move == M.SHOOTER_ON) {
+                        shooterOn();
+                    } else if (path.move == M.SHOOTER_OFF) {
+                        shooterOff();
+                    } else if (path.move == M.INTAKE_FORWARD) {
+                        intakeForward();
+                    } else if (path.move == M.INTAKE_BACKWARD) {
+                        intakeBackward();
+                    } else if (path.move == M.INTAKE_OFF) {
+                        intakeOff();
+                    }
+                    /*else if (path.move == M.STRAFE_TILL) {
+                        strafeTillLimit(path.speed, path.arg);
+                    } else if (path.move == M.DRIVETURN) {
+                        driveturn(path.speed, path.arg);
+                    } else if (path.move == M.CORRECT) {
+                        correct();
+                    } */
+                    opmode.sleep(200);
+                }
             }
-            /*else if (path.move == M.STRAFE_TILL) {
-                strafeTillLimit(path.speed, path.arg);
-            } else if (path.move == M.DRIVETURN) {
-                driveturn(path.speed, path.arg);
-            } else if (path.move == M.CORRECT) {
-                correct();
-            } */
-            opmode.sleep(200);
         }
     }
 }
