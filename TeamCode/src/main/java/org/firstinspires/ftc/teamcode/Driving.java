@@ -383,7 +383,6 @@ public class Driving {
 
     public void wArmDown() {
         robot.wobbleArm.setPosition(0.2);
-        opmode.sleep(200);
     }
 
     public void wArmUp() {
@@ -391,13 +390,11 @@ public class Driving {
     }
 
     public void wClawOpen() {
-        robot.wobbleClaw.setPosition(1);
-        opmode.sleep(100);
+        robot.wobbleClaw.setPosition(0);
     }
 
     public void wClawClose() {
-        robot.wobbleClaw.setPosition(0.3);
-        opmode.sleep(100);
+        robot.wobbleClaw.setPosition(0.35);
     }
 
     public void colorLightOn(){

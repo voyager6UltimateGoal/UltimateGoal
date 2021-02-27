@@ -13,7 +13,7 @@ public class Path {
             } else {
                 this.arg = _arg;
             }
-        } else {
+        } else if(direction == D.BACKWARD){
             this.speed = -Math.abs(_speed);
             if(_move != M.ROTATE) {
                 this.arg = -Math.abs(_arg);
