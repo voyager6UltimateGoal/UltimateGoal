@@ -400,6 +400,26 @@ public class Driving {
         opmode.sleep(100);
     }
 
+    public void shooterOn() {
+        robot.shooter.setPower(0.58);
+    }
+
+    public void shooterOff() {
+        robot.shooter.setPower(0);
+    }
+
+    public void intakeForward() {
+        robot.intake.setPower(1);
+    }
+
+    public void intakeBackward() {
+        robot.intake.setPower(-1);
+    }
+
+    public void intakeOff() {
+        robot.intake.setPower(0);
+    }
+
     public void colorLightOn(){
         robot.colorBottom.enableLed(true);
         robot.colorTop.enableLed(true);
@@ -443,6 +463,16 @@ public class Driving {
                 magazinePush();
             } else if (path.move == M.WAIT) {
                 robotWait((int) path.arg);
+            } else if (path.move == M.SHOOTER_ON) {
+                shooterOn();
+            } else if (path.move == M.SHOOTER_OFF) {
+                shooterOff();
+            } else if (path.move == M.INTAKE_FORWARD) {
+                intakeForward();
+            } else if (path.move == M.INTAKE_BACKWARD) {
+                intakeBackward();
+            } else if (path.move == M.INTAKE_OFF) {
+                intakeOff();
             }
             /*else if (path.move == M.STRAFE_TILL) {
                 strafeTillLimit(path.speed, path.arg);
