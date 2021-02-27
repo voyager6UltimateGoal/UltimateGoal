@@ -20,12 +20,17 @@ public class MainAutonomous extends LinearOpMode {
         waitForStart();
         driver.colorLightOn();
         Path[] initial = { // drive the robot into position to scan the rings
-                new Path(M.STRAFE, D.BACKWARD, 0.15, 37),
+                new Path(M.STRAFE, D.BACKWARD, 0.1, 38),
         };
         driver.colorLightOff();
         driver.parseMoves(initial);
         Path[] noRing = { // what the robot does if there's no rings
-                new Path(M.ROTATE, D.BACKWARD, 0.1, 90)
+                new Path(M.STRAFE, D.BACKWARD, 0.2, 41),
+                new Path(M.DRIVE, D.BACKWARD, 0.1, 5),
+                new Path(M.WOBBLE_DOWN, D.N, 0, 0),
+                new Path(M.WOBBLE_OPEN, D.N, 0, 0),
+                new Path(M.WOBBLE_UP, D.N, 0, 0)
+
         };
         Path[] oneRing = { // what the robot does if there's one ring
 //                new Path(M.ROTATE, D.FORWARD, 0.3, 90)

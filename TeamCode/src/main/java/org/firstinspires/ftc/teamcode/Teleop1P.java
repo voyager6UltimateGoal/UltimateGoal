@@ -56,7 +56,7 @@ public class Teleop1P extends LinearOpMode {
     private static final double wAIncrement = 0.03;
     private static final double wAMaxPos = 0.8;
     private static final double wAMinPos = 0.28;
-    private double wAPosition = 0.6;
+    private double wAPosition = 0.8;
 //    private static final double magIncrement = 0.02;
 //    private static final double magMaxPos = 0.4;
 //    private static final double magMinPos = 0.2;
@@ -168,7 +168,7 @@ public class Teleop1P extends LinearOpMode {
             }
 
             if(!shooterActive && button_dd && shooterTimer.seconds() > shooterDelay) {
-                robot.shooter.setPower(0.6);
+                robot.shooter.setPower(0.58);
                 shooterActive = true;
                 shooterTimer.reset();
             }

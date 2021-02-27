@@ -324,17 +324,17 @@ public class Driving {
     }
 
     public void turn(double speed, double degrees) {
-        double inches = degrees * 13.7 / 59;
+        double inches = degrees * 13.8 / 360;
         int leftFrontTarget, leftBackTarget, rightFrontTarget, rightBackTarget;
         if(opmode.opModeIsActive()) {
             leftFrontTarget = robot.leftFront.getCurrentPosition() + (int)(inches * COUNTS_PER_INCH);
             leftBackTarget = robot.leftBack.getCurrentPosition() +  (int)(inches * COUNTS_PER_INCH);
             rightFrontTarget = robot.rightFront.getCurrentPosition() - (int)(inches * COUNTS_PER_INCH);
             rightBackTarget = robot.rightBack.getCurrentPosition() - (int)(inches * COUNTS_PER_INCH);
-            robot.leftFront.setPower(speed);
-            robot.rightFront.setPower(-speed);
-            robot.leftBack.setPower(speed);
-            robot.rightBack.setPower(-speed);
+            robot.leftFront.setPower(-speed);
+            robot.rightFront.setPower(speed);
+            robot.leftBack.setPower(-speed);
+            robot.rightBack.setPower(speed);
             if(inches >= 0) {
                 while(opmode.opModeIsActive() && (robot.leftFront.getCurrentPosition() <= leftFrontTarget | robot.leftBack.getCurrentPosition() <= leftBackTarget | robot.rightFront.getCurrentPosition() >= rightFrontTarget | robot.rightBack.getCurrentPosition() >= rightBackTarget)) {
 
@@ -383,6 +383,7 @@ public class Driving {
 
     public void wArmDown() {
         robot.wobbleArm.setPosition(0.2);
+        opmode.sleep(200);
     }
 
     public void wArmUp() {
@@ -391,10 +392,12 @@ public class Driving {
 
     public void wClawOpen() {
         robot.wobbleClaw.setPosition(1);
+        opmode.sleep(100);
     }
 
     public void wClawClose() {
         robot.wobbleClaw.setPosition(0.3);
+        opmode.sleep(100);
     }
 
     public void colorLightOn(){
