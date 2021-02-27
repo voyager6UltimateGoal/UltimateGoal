@@ -20,6 +20,9 @@ public class Path {
             } else {
                 this.arg = _arg;
             }
+        } else {
+            this.speed = _speed;
+            this.arg = _arg;
         }
     }
 }

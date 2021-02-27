@@ -342,7 +342,7 @@ public class Driving {
                 }
             } else {
                 while(opmode.opModeIsActive() && (robot.leftFront.getCurrentPosition() >= leftFrontTarget | robot.leftBack.getCurrentPosition() >= leftBackTarget | robot.rightFront.getCurrentPosition() <= rightFrontTarget | robot.rightBack.getCurrentPosition() <= rightBackTarget)) {
-                    
+
                 }
             }
             robot.leftFront.setPower(0);
